@@ -21,17 +21,25 @@ google cartographerを用いた三次元地図生成は、LiDARとIMUに依存�
 ----
 ### 実行方法
  * cartographer実行
+``` 
  $ roslaunch cartographer_ros demo_orne_alpha.launch bag_filename:=~/..full_pass
+```
  * 終了時
+```
  $ rosservice call /finish_trajectory 0
+``` 
  * pbstreamで保存
+```
  $ rosservice call /wite_state ${HOME}/.../filename.bag.pbstream
+```
 
 ----
 ### pcd or ply 変換
-(※)お使いの機体に合わせてasset_writerのパラメータを設定してください。
+(※)お使いの機体に合わせてasset_writerのluaパラメータを設定してください。
  * asset_writer実行
+```
  $ roslaunch cartographer_ros {launchファイル名}.launch bag_filenames:=${HOME}/..full_pass pose_graph_filename:=${HOME}/..full_pass
+```
 
 ----
 ### Lab
