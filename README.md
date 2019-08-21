@@ -6,7 +6,7 @@
  * CPU : Intel corei7 7700
  * HDD : 4TB
  * RAM : 48GB
- * SENSOR : vlp16, adis(IMU)
+ * SENSOR : vlp16, ADIS(IMU)
 ----
 ### 使用目的
 つくばチャレンジで使用するための三次元地図作成
@@ -24,13 +24,15 @@ google cartographerを用いた三次元地図生成は、LiDARとIMUに依存�
 ``` 
  $ roslaunch cartographer_ros demo_orne_alpha.launch bag_filename:=~/..full_pass
 ```
+![image](https://user-images.githubusercontent.com/42163768/63419072-153fd780-c43f-11e9-913e-c31a690d6f3c.png)
+
  * 終了時
 ```
  $ rosservice call /finish_trajectory 0
 ``` 
  * pbstreamで保存
 ```
- $ rosservice call /wite_state ${HOME}/.../filename.bag.pbstream
+ $ rosservice call /write_state ${HOME}/.../filename.bag.pbstream
 ```
 
 ----
@@ -40,6 +42,9 @@ google cartographerを用いた三次元地図生成は、LiDARとIMUに依存�
 ```
  $ roslaunch cartographer_ros {launchファイル名}.launch bag_filenames:=${HOME}/..full_pass pose_graph_filename:=${HOME}/..full_pass
 ```
+CloudCompare等を用いて編集すると、以下のような三次元地図が得られました。
+![image](https://user-images.githubusercontent.com/42163768/63419185-46b8a300-c43f-11e9-94ae-16c6a8045458.png)
+
 
 ----
 ### Lab
