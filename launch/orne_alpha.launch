@@ -1,0 +1,32 @@
+<launch>
+<!--
+  <param name="robot_description"
+    commnad="$(find xacro)/xacro.py '$(find icart_mini_description)/urdf/icart_mini.xacro'" />
+-->
+  <param name="robot_description"
+    textfile="$(find cartographer_ros)/urdf/orne_alpha.urdf" />
+
+  <node name="robot_state_publisher" pkg="robot_state_publisher"
+    type="robot_state_publisher" />
+
+  <node name="cartographer_node" pkg="cartographer_ros"
+      type="cartographer_node" args="
+          -configuration_directory $(find cartographer_ros)/configuration_files
+          -configuration_basename orne_alpha.lua"
+      output="screen">
+    <remap from="points2" to="/velodyne_points" />
+    <remap from="imu" to="/imu_data" />
+  </node>
+
+  <node name="tf_remove_frames" pkg="cartographer_ros"
+      type="tf_remove_frames.py">
+    <remap from="tf_out" to="/tf" />
+    <rosparam param="remove_frames">
+      - map
+      - odom
+    </rosparam>
+  </node>
+
+  <node name="cartographer_occupancy_grid_node" pkg="cartographer_ros"
+      type="cartographer_occupancy_grid_node" args="-resolution 0.05" />
+</launch>
