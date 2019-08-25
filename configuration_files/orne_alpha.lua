@@ -40,8 +40,8 @@ MAP_BUILDER.num_background_threads = 7
 --TRAJECTORY BUILDER 3D MAIN SETTING
 TRAJECTORY_BUILDER_3D.min_range = 4.8
 TRAJECTORY_BUILDER_3D.max_range = 100
-TRAJECTORY_BUILDER_3D.num_accumulated_range_data = 2
-TRAJECTORY_BUILDER_3D.voxel_filter_size = 0.1
+TRAJECTORY_BUILDER_3D.num_accumulated_range_data = 1
+TRAJECTORY_BUILDER_3D.voxel_filter_size = 0.15
 --TRAJECTORY_BUILDER_3D.imu_gravity_time_constant = 9.81
 --TRAJECTORY_BUILDER_3D.num_odometry_states = 1
 
@@ -73,9 +73,9 @@ TRAJECTORY_BUILDER_3D.ceres_scan_matcher.ceres_solver_options.max_num_iterations
 --TRAJECTORY_BUILDER_3D.ceres_scan_matcher.ceres_solver_options.num_threads = 1
 
 --TRAJECTORY BUILDER SUBMAP SETTING
-TRAJECTORY_BUILDER_3D.submaps.high_resolution = 0.15
-TRAJECTORY_BUILDER_3D.submaps.high_resolution_max_range = 25
-TRAJECTORY_BUILDER_3D.submaps.low_resolution = 0.35
+TRAJECTORY_BUILDER_3D.submaps.high_resolution = 0.25
+TRAJECTORY_BUILDER_3D.submaps.high_resolution_max_range = 20
+TRAJECTORY_BUILDER_3D.submaps.low_resolution = 0.45
 TRAJECTORY_BUILDER_3D.submaps.num_range_data = 80   --Efectively the 'size' of each submap.
 TRAJECTORY_BUILDER_3D.submaps.range_data_inserter.hit_probability = 0.55
 TRAJECTORY_BUILDER_3D.submaps.range_data_inserter.miss_probability = 0.49
@@ -87,8 +87,8 @@ TRAJECTORY_BUILDER_3D.submaps.range_data_inserter.num_free_space_voxels = 2
 -----------------------------------------------------------------------------------------------
 
 --Global Slam Basic Setting
-POSE_GRAPH.optimize_every_n_nodes = 100 --160
-POSE_GRAPH.matcher_rotation_weight = 1.6e3 --100
+POSE_GRAPH.optimize_every_n_nodes = 100
+POSE_GRAPH.matcher_rotation_weight = 1.6e3
 POSE_GRAPH.matcher_translation_weight = 5e2
 --POSE_GRAPH.max_num_final_iterations = 200
 POSE_GRAPH.global_sampling_ratio = 0.001 
@@ -96,18 +96,18 @@ POSE_GRAPH.global_sampling_ratio = 0.001
 --MAP_BUILDER.pose_graph.constraint_builder.adaptive_voxel_filter = TRAJECTORY_BUILDER_3D.high_resolution_adaptive_voxel_filter
 
 --Global SLAM constraint builder options
-POSE_GRAPH.constraint_builder.min_score = 0.5 --0,62--0.80
-POSE_GRAPH.constraint_builder.sampling_ratio = 0.005 --0.03
-POSE_GRAPH.constraint_builder.global_localization_min_score = 0.7 --0.55
+POSE_GRAPH.constraint_builder.min_score = 0.5
+POSE_GRAPH.constraint_builder.sampling_ratio = 0.005
+POSE_GRAPH.constraint_builder.global_localization_min_score = 0.7
 POSE_GRAPH.constraint_builder.loop_closure_translation_weight = 1e4
 POSE_GRAPH.constraint_builder.loop_closure_rotation_weight = 1e5
 POSE_GRAPH.constraint_builder.log_matches = true
 POSE_GRAPH.constraint_builder.max_constraint_distance= 100.
 
 --Global SLAM optimization settings
-POSE_GRAPH.optimization_problem.huber_scale = 3e2 --5e2
-POSE_GRAPH.optimization_problem.acceleration_weight = 750 --1e3
-POSE_GRAPH.optimization_problem.rotation_weight = 140 --3e5
+POSE_GRAPH.optimization_problem.huber_scale = 3e2
+POSE_GRAPH.optimization_problem.acceleration_weight = 750
+POSE_GRAPH.optimization_problem.rotation_weight = 140
 POSE_GRAPH.optimization_problem.log_solver_summary = false
 POSE_GRAPH.optimization_problem.ceres_solver_options.max_num_iterations = 200
 --POSE_GRAPH.optimization_problem.ceres_solver_options.num_threads = 1
