@@ -9,8 +9,8 @@
  * SENSOR : vlp16, ADIS(IMU)
 ----
 ### 使用目的
-つくばチャレンジで使用するための三次元地図作成
-
+つくばチャレンジで使用するための三次元地図生成
+* [動画](https://youtu.be/F_A6sAXsQtc)
 ----
 ## 注意事項
 google cartographerを用いた三次元地図生成は、LiDARとIMUに依存します。
@@ -44,7 +44,6 @@ google cartographerを用いた三次元地図生成は、LiDARとIMUに依存�
 ```
 CloudCompare等を用いて編集すると、以下のような三次元地図が得られました。
 ![image](https://user-images.githubusercontent.com/42163768/63419185-46b8a300-c43f-11e9-94ae-16c6a8045458.png)
-
 
 ----
 ### Lab
