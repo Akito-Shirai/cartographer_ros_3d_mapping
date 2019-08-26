@@ -12,7 +12,7 @@
   <node name="cartographer_node" pkg="cartographer_ros"
       type="cartographer_node" args="
           -configuration_directory $(find cartographer_ros)/configuration_files
-          -configuration_basename orne_alpha.lua"
+          -configuration_basename my_param.lua"
       output="screen">
     <remap from="points2" to="/velodyne_points" />
     <remap from="imu" to="/imu_data" />

@@ -1,10 +1,10 @@
 <launch>
   <param name="/use_sim_time" value="true" />
 
-  <include file="$(find cartographer_ros)/launch/orne_alpha.launch" />
+  <include file="$(find cartographer_ros)/launch/my_param.launch" />
 
   <node name="rviz" pkg="rviz" type="rviz" required="true"
-      args="-d $(find cartographer_ros)/configuration_files/orne_alpha.rviz" />
+      args="-d $(find cartographer_ros)/configuration_files/my_param.rviz" />
   <node name="playbag" pkg="rosbag" type="play"
       args="--clock $(arg bag_filename)">
     <remap from="tf" to="tf_in" />

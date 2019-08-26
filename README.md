@@ -14,7 +14,7 @@
 ----
 ## 注意事項
 google cartographerを用いた三次元地図生成は、LiDARとIMUに依存します。
-本パラメータは、我々が使用している機体「ORNEα」に合わせて最適化しているため、他の機体で同じ挙動は期待できません。
+本パラメータは、我々が使用している機体に合わせて最適化しているため、他の機体で同じ挙動は期待できません。
 また、約2Kmの地図を作るにあたって、非常に重い処理がかかります。低スペックPCでの実行は、環境を壊す危険性があるため、十分に注意してください。
 以上を踏まえて、本パラメータを実行の際には一切の責任を負いませんので、ご理解ください。
 
@@ -22,7 +22,7 @@ google cartographerを用いた三次元地図生成は、LiDARとIMUに依存�
 ### 実行方法
  * cartographer実行
 ``` 
- $ roslaunch cartographer_ros demo_orne_alpha.launch bag_filename:=~/..full_pass
+ $ roslaunch cartographer_ros demo_my_param.launch bag_filename:=~/..full_pass
 ```
 ![image](https://user-images.githubusercontent.com/42163768/63419072-153fd780-c43f-11e9-913e-c31a690d6f3c.png)
 
@@ -45,9 +45,6 @@ google cartographerを用いた三次元地図生成は、LiDARとIMUに依存�
 CloudCompare等を用いて編集すると、以下のような三次元地図が得られました。
 ![image](https://user-images.githubusercontent.com/42163768/63419185-46b8a300-c43f-11e9-94ae-16c6a8045458.png)
 
-----
-### Lab
- * [open-rdc](https://github.com/open-rdc/)
 ----
 ### LICENSE
 See the LICENSE file for details.
