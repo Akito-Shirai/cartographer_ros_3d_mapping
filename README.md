@@ -10,7 +10,7 @@
 ----
 ### 使用目的
 つくばチャレンジで使用するための三次元地図生成
-* [動画](https://youtu.be/F_A6sAXsQtc)
+* [動画](https://youtu.be/4aTRLJ23_Lc)
 ----
 ## 注意事項
 google cartographerを用いた三次元地図生成は、LiDARとIMUに依存します。
